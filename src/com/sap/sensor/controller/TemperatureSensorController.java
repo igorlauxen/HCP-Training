@@ -49,5 +49,11 @@ public class TemperatureSensorController {
 	public @ResponseBody TemperatureSensor setOccupied(@PathVariable long id, @RequestBody TemperatureSensor temperatureSensor) {
 		return TemperatureSensorDao.updateTemperatureSensor(id, temperatureSensor);
 	}
+	
+	@RequestMapping(value = "/{id}/random", method = RequestMethod.PUT)
+	@ResponseStatus(HttpStatus.OK)
+	public @ResponseBody TemperatureSensor randomTemperature(@PathVariable long id) {
+		return TemperatureSensorDao.randomTemperature(id);
+	}
 
 }

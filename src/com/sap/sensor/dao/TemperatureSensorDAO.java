@@ -60,5 +60,15 @@ public class TemperatureSensorDAO {
 		em.merge(temperature);
 		return temperature;
 	}
+	
+	@Transactional
+	public TemperatureSensor randomTemperature(long id) {
+		TemperatureSensor temperature = getTemperatureSensorById(id);
+		
+		temperature.setTemperature( -100 + (int) (Math.random() * (500 - (-100))+1 ));
+		em.merge(temperature);
+		
+		return temperature;
+	}
 
 }
